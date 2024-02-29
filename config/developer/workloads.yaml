@@ -28,6 +28,10 @@ spec:
       system: where-for-dinner
       owner: where-for-dinner-team
       description: Core Where for Dinner service for submitting searches and parameters
+  - name: annotations
+    value:
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   serviceClaims:
   - name: rmq
     ref:
