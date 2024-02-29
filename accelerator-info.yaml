@@ -1,0 +1,31 @@
+id: 06239065-5976-43ef-8acd-5f9d0d058061
+timestamp: 2024-02-29T16:13:53.510Z
+source: TAP-GUI
+username: scrogatl
+accelerator:
+  name: where2
+  git:
+    url: https://github.com/vmware-tanzu/application-accelerator-samples
+    subPath: where-for-dinner
+    ref: 1.7.x
+    commit: bb9e655b33e39b242b6e5d9e218578e75c1d833c
+fragments:
+  - name: build-wrapper-maven
+  - name: tap-workload
+options:
+  projectName: wfd-gmq
+  workloadNamespace: wfd-gartner
+  serviceNamespace: service-instances
+  gatewayType: tapscg
+  msgBrokerType: rabbitmq
+  dynamicMsgBroker: false
+  msgbrokerName: msgbroker-where-for-dinner
+  dbType: h2
+  cacheType: inmemCache
+  enableSecurity: false
+  ployglotWorkloads: false
+  includeBuildToolWrapper: true
+  gatewayName: gateway-where-for-dinner
+  appWorkloadURL: http://where-for-dinner.tap-next.blah.cloud
+  enableCloudEvents: false
+  numRabbitMQClusterNodes: 1
