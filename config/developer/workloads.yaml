@@ -14,14 +14,16 @@ spec:
   env:
   - name: spring_profiles_active
     value: rabbitmq
+  - name: OTEL_RESOURCE_ATTRIBUTES
+    value: "application=where-for-dinner"
   params:
-  # - name: annotations
-  #   value:
-  #     autoscaling.knative.dev/minScale: "1"
-  #     autoscaling.knative.dev/target: "200"
-  #     autoscaling.knative.dev/maxScale: "3"
-  #     sidecar.opentelemetry.io/inject: "true"
-  #     instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+      autoscaling.knative.dev/target: "200"
+      autoscaling.knative.dev/maxScale: "3"
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   - name: api_descriptor
     value:
       type: openapi
@@ -79,6 +81,8 @@ spec:
       autoscaling.knative.dev/minScale: "1"
       autoscaling.knative.dev/target: "200"
       autoscaling.knative.dev/maxScale: "4"
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   serviceClaims:
   - name: rmq
     ref:
@@ -124,6 +128,8 @@ spec:
       autoscaling.knative.dev/minScale: "1"
       autoscaling.knative.dev/target: "200"
       autoscaling.knative.dev/maxScale: "4"
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   serviceClaims:
   - name: rmq
     ref:
@@ -170,6 +176,8 @@ spec:
       autoscaling.knative.dev/minScale: "1"
       autoscaling.knative.dev/target: "200"
       autoscaling.knative.dev/maxScale: "4"
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   - name: api_descriptor
     value:
       type: openapi
@@ -248,6 +256,10 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
 spec:
   params:
+  - name: annotations
+    value:
+      sidecar.opentelemetry.io/inject: "true"
+      instrumentation.opentelemetry.io/inject-java: "observability-system/my-instrumentation"
   - name: ports
     value:
     - port: 80
