@@ -261,9 +261,6 @@ metadata:
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     apps.tanzu.vmware.com/has-tests: "true"
 spec:
-  env:
-  - name: OTEL_RESOURCE_ATTRIBUTES
-    value: "application=where-for-dinner"
   params:
   - name: annotations
     value:
@@ -285,6 +282,9 @@ spec:
     env:
     - name: BP_JVM_VERSION
       value: "17"
+  env:
+  - name: OTEL_RESOURCE_ATTRIBUTES
+    value: "application=where-for-dinner"
   source:
     git:
       url: https://github.com/scrogatl/expert-dollop
